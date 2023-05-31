@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "101-application-gateway-appgw"
-  location = "eastus"
+  name     = "rg-dmz-axatest"
+  location = "westeurope"
 }
 
 resource "azurerm_public_ip" "pip" {
-  name                = "myAGPublicIPAddress"
+  name                = "pip-dmz-agw-axatest-we"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "pip" {
 
 
 resource "azurerm_application_gateway" "main" {
-  name                = "myAppGateway"
+  name                = "agw-axatest-we"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
