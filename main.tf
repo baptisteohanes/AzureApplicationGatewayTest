@@ -25,7 +25,7 @@ resource "azurerm_application_gateway" "main" {
 
   gateway_ip_configuration {
     name      = "my-gateway-ip-configuration"
-    subnet_id = "/subscriptions/8ce52a05-1cc6-4d89-8c6c-551209f12aeb/resourceGroups/101-application-gateway-er57sbfs/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myAGSubnet"
+    subnet_id = var.gateway_ip_configuration_subnet_id
   }
 
   frontend_port {
@@ -40,7 +40,7 @@ resource "azurerm_application_gateway" "main" {
 
   backend_address_pool {
     name = var.backend_address_pool_name
-    ip_addresses = ["10.21.1.4", "10.21.1.5"]
+    ip_addresses = var.backend_address_pool_ip_addresses
   }
 
   backend_http_settings {
