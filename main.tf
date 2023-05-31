@@ -43,6 +43,10 @@ resource "azurerm_application_gateway" "main" {
     ip_addresses = var.backend_address_pool_ip_addresses
   }
 
+    backend_address_pool {
+    name = "testchange"
+  }
+
   backend_http_settings {
     name                  = var.http_setting_name
     cookie_based_affinity = "Disabled"
