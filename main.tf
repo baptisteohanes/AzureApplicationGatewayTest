@@ -69,6 +69,10 @@ resource "azurerm_application_gateway" "main" {
     name = var.backend_address_pool_name
   }
 
+    backend_address_pool {
+    name = "backendpool2"
+  }
+
   backend_http_settings {
     name                  = var.http_setting_name
     cookie_based_affinity = "Disabled"
